@@ -1,0 +1,33 @@
+#!/bin/bash
+##############################
+#
+# DEBUG TOOL for Filiberry2 MQTT Connector
+
+MQTT_TOPIC=filiberry/sensor
+MQTT_SERVER=localhost
+
+
+while true; do
+	source debug_onewiremqttd_data.sh
+	#----------------------------------------
+	echo "pub $MQTT_TOPIC/$ID_1 -m $VALUE_1"
+	mosquitto_pub -h $MQTT_SERVER -t $MQTT_TOPIC/$ID_1 -m $VALUE_1 
+	sleep 1
+	# ---------------------------------------
+	echo "pub $MQTT_TOPIC/$ID_2 -m $VALUE_2"
+	mosquitto_pub -h $MQTT_SERVER -t $MQTT_TOPIC/$ID_2 -m $VALUE_2
+	sleep 1
+	# ---------------------------------------
+	echo "pub $MQTT_TOPIC/$ID_3 -m $VALUE_3"
+	mosquitto_pub -h $MQTT_SERVER -t $MQTT_TOPIC/$ID_3 -m $VALUE_3	
+	sleep 1
+	# ---------------------------------------	
+	echo "pub $MQTT_TOPIC/$ID_4 -m $VALUE_4"
+	mosquitto_pub -h $MQTT_SERVER -t $MQTT_TOPIC/$ID_4 -m $VALUE_4	
+	sleep 1
+	# ---------------------------------------	
+	echo "pub $MQTT_TOPIC/$ID_5 -m $VALUE_5"
+	mosquitto_pub -h $MQTT_SERVER -t $MQTT_TOPIC/$ID_5 -m $VALUE_5	
+	sleep 1
+done
+
